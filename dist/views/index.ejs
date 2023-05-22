@@ -2,9 +2,9 @@
 <%- include('partials/header') %>
 <div class="main">
     <% text.forEach(function(t) { %>
-        <p class="hex"><%= t %></p>
+        <p class="hex">
+            <% t.split("").forEach(function(c) { %><span class="dark"><%=c%></span><%})%>
+        </p>
     <% }) %>
 </div>
 <%- include('partials/footer') %>
-<!-- This is the script that we would be creating later -->
-<script src="./js/scripts.js"></script>

@@ -24,9 +24,16 @@ a:active {
     color: teal;
 } 
 
+.head {
+    width: 50%;
+    margin: auto;
+    max-width: 36em;
+}
+
 .main, .footer {
     margin: auto;
     text-align: center;
+    max-width: 36em;
 }
 
 .main p:first-child {
@@ -39,4 +46,8 @@ a:active {
 
 .hex {
     margin: 0;
+}
+
+.hex .dark {
+    color: dimgray;
 }
