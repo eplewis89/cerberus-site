@@ -1,7 +1,6 @@
 import express, { Application } from "express";
 import expressLayouts from 'express-ejs-layouts';
-import http from "http";
-import path from "path"
+import path from "path";
 import dotenv from "dotenv";
 
 // import routes table
@@ -29,6 +28,7 @@ app.set('view engine', 'ejs');
 // set static path
 app.use(express.static(path.join(__dirname, "public")));
 
+// register routes
 routes.register(app);
 
 // Starting the server

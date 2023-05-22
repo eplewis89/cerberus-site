@@ -1,9 +1,6 @@
 html {
     background-color: black;
     font-family: Consolas, monaco, monospace;
-}
-
-a {
     color: lightgray;
 }
 
@@ -27,8 +24,20 @@ a:active {
     color: teal;
 } 
 
-.center {
+.main, .footer {
     margin: auto;
     width: 50%;
     text-align: center;
+}
+
+.main p:first-child {
+    margin-top: 2em;
+}
+
+.main p:last-child {
+    margin-bottom: 2em;
+}
+
+.hex {
+    margin: 0;
 }
