@@ -10,7 +10,6 @@ package-lock.json
 
 # folders
 node_modules/*
-dist/*
 
 # other files
 .env
