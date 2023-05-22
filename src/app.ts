@@ -1,5 +1,6 @@
 import express, { Application } from "express";
 import expressLayouts from 'express-ejs-layouts';
+import favicon from "serve-favicon"
 import path from "path";
 import dotenv from "dotenv";
 
@@ -27,6 +28,9 @@ app.set('view engine', 'ejs');
 
 // set static path
 app.use(express.static(path.join(__dirname, "public")));
+
+// set favico
+app.use(favicon(path.join(__dirname,'public','assets','images','favicon.ico')));
 
 // register routes
 routes.register(app);
