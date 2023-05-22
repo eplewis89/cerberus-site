@@ -1,4 +1,4 @@
-import express, { Application, Request, Response } from "express";
+import express, { Application } from "express";
 import expressLayouts from 'express-ejs-layouts';
 import http from "http";
 import path from "path"
@@ -12,10 +12,9 @@ dotenv.config();
 
 // setup the app
 const app: Application = express();
-const server: http.Server = http.createServer(app);
 
 // set port
-const port = process.env.SERVER_PORT;
+const port = process.env.SERVER_PORT || 8080;
 
 // EJS setup
 app.use(expressLayouts);
@@ -33,7 +32,7 @@ app.use(express.static(path.join(__dirname, "public")));
 routes.register(app);
 
 // Starting the server
-server.listen(port, () => {
+app.listen(port, () => {
     // tslint:disable-next-line:no-console
-    console.log( `server started at http://localhost:${port}`);
+    return console.log( `server started at http://localhost:${port}`);
 });

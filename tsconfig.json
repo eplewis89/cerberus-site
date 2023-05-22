@@ -2,14 +2,12 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true,
-    "noImplicitAny": true,
-    "moduleResolution": "node",
+    "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  }
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "outDir": "dist"
+  },
+  "include": ["./src/**/*"]
 }

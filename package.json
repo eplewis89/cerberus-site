@@ -4,18 +4,19 @@
   "description": "cerberus secures website",
   "main": "dist/index.js",
   "scripts": {
-    "start": "nodemon --watch src -e ts,ejs --exec npm run dev:start",
-    "debug": "nodemon src/app.ts",
-    "dev": "node dist/app.js",
-    "dev:start": "npm-run-all build dev",
-    "build": "npm-run-all clean lint tsc copy-assets",
-    "copy-assets": "ts-node src/tools/assets",
-    "tsc": "tsc",
-    "clean": "rimraf dist/*",
-    "lint": "tslint -c tslint.json -p tsconfig.json"
+    "start": "nodemon src/app.ts",
+    "build": "rimraf dist && tsc",
+    "ts.check": "tsc --project tsconfig.json",
+    "add-build": "git add dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "pre-commit": [
+    "ts.check",
+    "build",
+    "add-build"
+  ],
+  "author": "Erin Patrick Lewis <cerberus.secures@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
@@ -27,6 +28,8 @@
     "express-ejs-layouts": "^2.5.1",
     "fs": "^0.0.1-security",
     "npm-run-all": "^4.1.5",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^5.0.1",
     "shelljs": "^0.8.5",
     "ts-node": "^10.9.1",
     "tslint": "^6.1.3",
