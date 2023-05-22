@@ -1,0 +1,8 @@
+html {
+    background-color: black;
+}
+.center {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}

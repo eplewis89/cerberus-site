@@ -1,7 +1,9 @@
-import * as shell from "shelljs";
+import fs from "fs"
 
 // copy view templates and assets in the public folder
-shell.cp("-R", ["src/views", "src/public"], "dist/");
+fs.cpSync("./src/views", "./dist/views", {recursive: true})
+fs.cpSync("./src/public", "./dist/public", {recursive: true})
 
-// remove unnecessary files
-shell.rm(["dist/public/js/*.ts", "dist/public/js/*.json"]);
+// remove tools dir
+fs.rmSync("./dist/tools/assets.js")
+fs.rmdirSync("./dist/tools")
