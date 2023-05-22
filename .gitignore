@@ -14,6 +14,5 @@ dist/*
 
 # other files
 .env
-.yarnrc.yml
 .editorconfig
 .gitattributes
