@@ -1,6 +1,32 @@
 html {
     background-color: black;
+    font-family: Consolas, monaco, monospace;
 }
+
+a {
+    color: lightgray;
+}
+
+/* unvisited link */
+a:link {
+    color: lightgray;
+}
+
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: teal;
+}
+
+/* selected link */
+a:active {
+    color: teal;
+} 
+
 .center {
     margin: auto;
     width: 50%;
