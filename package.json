@@ -1,34 +1,40 @@
 {
   "name": "cerberus-site",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "cerberus secures website",
+  "main": "dist/index.js",
   "scripts": {
-    "lint": "tslint -c tslint.json -p tsconfig.json",
-    "dev": "nodemon ./src/app.ts"
+    "start": "nodemon --watch src -e ts,ejs --exec npm run dev:start",
+    "debug": "nodemon src/app.ts",
+    "dev": "node dist/app.js",
+    "dev:start": "npm-run-all build dev",
+    "build": "npm-run-all clean lint tsc copy-assets",
+    "copy-assets": "ts-node src/tools/assets",
+    "tsc": "tsc",
+    "clean": "rimraf dist/*",
+    "lint": "tslint -c tslint.json -p tsconfig.json"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.17",
     "@types/express-ejs-layouts": "^2.5.1",
-    "@types/gulp": "^4.0.10",
     "@types/node": "^20.2.3",
+    "@types/shelljs": "^0.8.12",
     "del": "^7.0.0",
-    "dotenv": "^16.0.3",
+    "express-ejs-layouts": "^2.5.1",
     "fs": "^0.0.1-security",
-    "gulp": "^4.0.2",
-    "gulp-typescript": "^6.0.0-alpha.1",
-    "gulpclass": "^0.2.0",
     "npm-run-all": "^4.1.5",
+    "shelljs": "^0.8.5",
     "ts-node": "^10.9.1",
     "tslint": "^6.1.3",
     "typescript": "^5.0.4"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "ejs": "^3.1.9",
-    "express": "^4.18.2",
-    "express-ejs-layouts": "^2.5.1"
+    "express": "^4.18.2"
   }
 }

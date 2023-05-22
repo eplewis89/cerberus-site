@@ -34,6 +34,6 @@ routes.register(app);
 
 // Starting the server
 server.listen(port, () => {
-    // tslint:disable-next-line:no-console    
+    // tslint:disable-next-line:no-console
     console.log( `server started at http://localhost:${port}`);
 });
