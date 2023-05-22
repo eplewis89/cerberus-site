@@ -2,30 +2,38 @@ import express, { Application, Request, Response } from "express";
 import expressLayouts from 'express-ejs-layouts';
 import http from "http";
 import path from "path"
+import dotenv from "dotenv";
 
-import debug from "./config/debug"
+// import routes table
+import * as routes from "./routes";
 
+// get config vals of .env
+dotenv.config();
+
+// setup the app
 const app: Application = express();
 const server: http.Server = http.createServer(app);
 
-// Setting the port
-const port = debug.PORT;
+// set port
+const port = process.env.SERVER_PORT;
 
 // EJS setup
 app.use(expressLayouts);
+app.use(express.json());
 
-// Setting the root path for views directory
+// set root path for views directory
 app.set('views', path.join(__dirname, 'views'));
 
-// Setting the view engine
+// set view engine
 app.set('view engine', 'ejs');
 
-/* Home route */
-app.get("/", (req: Request, res: Response) => {
-	res.render("index")
-});
+// set static path
+app.use(express.static(path.join(__dirname, "public")));
+
+routes.register(app);
 
 // Starting the server
 server.listen(port, () => {
-    console.log(`SERVER RUNNING ON ${port}`);
+    // tslint:disable-next-line:no-console    
+    console.log( `server started at http://localhost:${port}`);
 });
