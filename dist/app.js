@@ -28,6 +28,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const express_ejs_layouts_1 = __importDefault(require("express-ejs-layouts"));
+const serve_favicon_1 = __importDefault(require("serve-favicon"));
 const path_1 = __importDefault(require("path"));
 const dotenv_1 = __importDefault(require("dotenv"));
 // import routes table
@@ -47,6 +48,8 @@ app.set('views', path_1.default.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 // set static path
 app.use(express_1.default.static(path_1.default.join(__dirname, "public")));
+// set favico
+app.use((0, serve_favicon_1.default)(path_1.default.join(__dirname, 'public', 'assets', 'images', 'favicon.ico')));
 // register routes
 routes.register(app);
 // Starting the server
