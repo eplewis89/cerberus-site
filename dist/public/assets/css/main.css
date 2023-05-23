@@ -31,11 +31,14 @@ a:active {
     max-width: 36em;
 }
 
+.main {
+    display: inline-block;
+}
+
 .main, .footer {
     margin: auto;
     text-align: center;
-    width: 600px;
-    display: inline-block;
+    width: 650px;
 }
 
 .main p:first-child {
