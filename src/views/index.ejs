@@ -1,10 +1,23 @@
 
 <%- include('partials/header') %>
 <div class="main">
-    <% text.forEach(function(t) { %>
-        <p class="hex">
-            <% t.split("").forEach(function(c) { %><span class="dark">&zwj;<%=c%></span><%})%>
-        </p>
+    <% text.forEach(function(line, row) { %>
+        <p class="hex"><%- getCurLine(line, row) %></p>
     <% }) %>
 </div>
 <%- include('partials/footer') %>
+
+<%
+function getCurLine(line, row) {
+    var curline = "";
+
+    line.split("").forEach(function(char, col) {
+        if (!/\r|\n/.exec(char)) {
+            var spanClass = "dark row" + row + " col" + col;
+            curline += "&zwj;<span class='" + spanClass + "'>" + char + "</span>";
+        }
+    });
+
+    return curline;
+}
+%>
