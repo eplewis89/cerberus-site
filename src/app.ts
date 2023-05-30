@@ -1,5 +1,6 @@
 import express, { Application } from "express";
 import expressLayouts from 'express-ejs-layouts';
+import mysql from "mysql";
 import favicon from "serve-favicon"
 import path from "path";
 import dotenv from "dotenv";
@@ -14,7 +15,12 @@ dotenv.config();
 const app: Application = express();
 
 // set port
-const port = process.env.SERVER_PORT || 8080;
+const port = process.env.SERVER_PORT;
+
+// setup database
+const connection = mysql.createConnection(process.env.DATABASE_URL);
+
+connection.connect()
 
 // EJS setup
 app.use(expressLayouts);
@@ -33,10 +39,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname,'public','assets','images','favicon.ico')));
 
 // register routes
-routes.register(app);
+routes.register(app, connection);
 
 // Starting the server
 app.listen(port, () => {
     // tslint:disable-next-line:no-console
-    return console.log( `server started at http://localhost:${port}`);
+    return console.log(`server started at http://localhost:${port}`);
 });

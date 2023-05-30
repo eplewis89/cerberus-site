@@ -1,8 +1,9 @@
 import * as express from "express";
-import fs from "fs"
-import path from "path"
+import mysql from "mysql";
+import fs from "fs";
+import path from "path";
 
-export const register = (app: express.Application) => {
+export const register = (app: express.Application, db: mysql.Connection) => {
     // home page
     app.get("/", (req: any, res) => {
         var targetChars: string[][] = [];
@@ -39,11 +40,19 @@ export const register = (app: express.Application) => {
 
     // blog posts
     app.get("/thoughts", (req: any, res) => {
-        res.render("thoughts");
+        db.query('SELECT * FROM thoughts WHERE id = 1', (err, rows, fields) => {
+            if (err) throw err
+        
+            res.render("thoughts", { 'data': rows });
+        });
     });
 
     // specific post
     app.get("/thoughts/:id", (req: any, res) => {
-        res.render("thoughts");
+        db.query('SELECT * FROM thoughts WHERE id = 1', (err, rows, fields) => {
+            if (err) throw err
+        
+            res.render("thoughts", { 'data': rows[0] });
+        });
     });
 };

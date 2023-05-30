@@ -37,10 +37,13 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
+    "@planetscale/database": "^1.7.0",
+    "@types/mysql": "^2.15.21",
     "@types/serve-favicon": "^2.5.4",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "mysql": "^2.18.1",
     "serve-favicon": "^2.5.0"
   },
   "packageManager": "yarn@3.5.1"

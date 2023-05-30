@@ -3,6 +3,9 @@ html {
     font-family: Consolas, monaco, monospace;
     color: lightgray;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    width: auto;
 }
 
 /* unvisited link */
@@ -38,7 +41,6 @@ a:active {
 .main, .footer {
     margin: auto;
     text-align: center;
-    width: 650px;
 }
 
 .main p:first-child {
@@ -50,9 +52,19 @@ a:active {
 }
 
 .hex {
+    margin-left: -100%;
+    margin-right: -100%;
+    text-align: center;
     margin: 0;
 }
 
 .hex .dark {
     color: dimgray;
+}
+
+@media only screen 
+and (-webkit-device-pixel-ratio: 3) {
+    body {
+        font-size: 0.5em;
+    }
 }

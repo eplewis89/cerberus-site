@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.register = void 0;
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
-const register = (app) => {
+const register = (app, db) => {
     // home page
     app.get("/", (req, res) => {
         var targetChars = [];
@@ -35,6 +35,22 @@ const register = (app) => {
     // about page
     app.get("/about", (req, res) => {
         res.render("about");
+    });
+    // blog posts
+    app.get("/thoughts", (req, res) => {
+        db.query('SELECT * FROM thoughts WHERE id = 1', (err, rows, fields) => {
+            if (err)
+                throw err;
+            res.render("thoughts", { 'data': rows });
+        });
+    });
+    // specific post
+    app.get("/thoughts/:id", (req, res) => {
+        db.query('SELECT * FROM thoughts WHERE id = 1', (err, rows, fields) => {
+            if (err)
+                throw err;
+            res.render("thoughts", { 'data': rows[0] });
+        });
     });
 };
 exports.register = register;
