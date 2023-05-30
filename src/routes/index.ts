@@ -8,26 +8,19 @@ export const register = (app: express.Application, db: mysql.Connection) => {
     app.get("/", (req: any, res) => {
         var targetChars: string[][] = [];
 
-        var rowColData = {
-            'minRow': 2,
-            'maxRow': 5,
-            'minCol': 9,
-            'maxCol': 50
-        };
-
         var originalFile = path.resolve(__dirname, "../public/assets/text/original.txt")
         var targetFile = path.resolve(__dirname, "../public/assets/text/final.txt")
 
         fs.readFile(targetFile, "utf8", (error, target) => {
-            target.split('\n').forEach(element => {
-                targetChars.push(element.split(''));
+            target.split('\n').forEach((element) => {
+                targetChars.push(element.replace(/[\n\r]/g, '').split(''))
             });
 
             fs.readFile(originalFile, "utf8", (error,data) => {
                 if (error) {
-                    res.render("index", { 'text': 'file not found...' });
+                    res.render("index", { 'original': 'file not found...' });
                 } else {
-                    res.render("index", { 'text': data.split('\n'), 'target': targetChars, 'rules': rowColData });
+                    res.render("index", { 'original': data.split('\n'), 'final': targetChars });
                 }
             });
         });
@@ -41,7 +34,7 @@ export const register = (app: express.Application, db: mysql.Connection) => {
     // blog posts
     app.get("/thoughts", (req: any, res) => {
         db.query('SELECT * FROM thoughts WHERE id = 1', (err, rows, fields) => {
-            if (err) throw err
+            if (err) res.render("error", { 'error': "application error occurred" });
         
             res.render("thoughts", { 'data': rows });
         });
@@ -49,8 +42,8 @@ export const register = (app: express.Application, db: mysql.Connection) => {
 
     // specific post
     app.get("/thoughts/:id", (req: any, res) => {
-        db.query('SELECT * FROM thoughts WHERE id = 1', (err, rows, fields) => {
-            if (err) throw err
+        db.query(`SELECT * FROM thoughts WHERE id = ${ req.params.id }`, (err, rows, fields) => {
+            if (err) res.render("error", { 'error': "post not found" });
         
             res.render("thoughts", { 'data': rows[0] });
         });

@@ -1,6 +1,9 @@
 <%- include('partials/header') %>
 <div class="main">
-    <% console.log(data); %>
-    <p>coming soon</p>
+    <% if (data) { %>
+    <p><%= data.content %></p>
+    <% } else { %>
+    <p>post not found</p>
+    <% } %>
 </div>
 <%- include('partials/footer') %>

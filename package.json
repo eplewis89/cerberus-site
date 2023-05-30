@@ -1,7 +1,7 @@
 {
   "name": "cerberus-site",
   "version": "1.0.0",
-  "description": "cerberus secures website",
+  "description": "cerberus website - a personal blog about cybersecurity",
   "main": "dist/index.js",
   "scripts": {
     "start": "nodemon src/app.ts",
@@ -12,11 +12,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "pre-commit": [
-    "ts.check",
-    "build",
-    "add-build"
-  ],
   "author": "Erin Patrick Lewis <cerberus.secures@gmail.com>",
   "license": "ISC",
   "devDependencies": {
