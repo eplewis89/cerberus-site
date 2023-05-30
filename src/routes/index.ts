@@ -36,4 +36,14 @@ export const register = (app: express.Application) => {
     app.get("/about", (req: any, res) => {
         res.render("about");
     });
+
+    // blog posts
+    app.get("/thoughts", (req: any, res) => {
+        res.render("thoughts");
+    });
+
+    // specific post
+    app.get("/thoughts/:id", (req: any, res) => {
+        res.render("thoughts");
+    });
 };
