@@ -4,6 +4,7 @@ import mysql from "mysql";
 import favicon from "serve-favicon"
 import path from "path";
 import dotenv from "dotenv";
+import moment from "moment";
 
 // import routes table
 import * as routes from "./routes";
@@ -37,6 +38,11 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // set favico
 app.use(favicon(path.join(__dirname,'public','assets','images','favicon.ico')));
+
+app.use((req, res, next) => {
+    res.locals.moment = moment;
+    next();
+});
 
 // register routes
 routes.register(app, connection);

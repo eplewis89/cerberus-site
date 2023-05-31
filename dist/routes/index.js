@@ -28,14 +28,22 @@ const register = (app, db) => {
     });
     // about page
     app.get("/about", (req, res) => {
-        res.render("about");
+        var selfieFile = path_1.default.resolve(__dirname, "../public/assets/text/selfie.txt");
+        fs_1.default.readFile(selfieFile, "utf8", (error, data) => {
+            if (error) {
+                res.render("about", { 'selfie': 'file not found...' });
+            }
+            else {
+                res.render("about", { 'selfie': data.split('\n') });
+            }
+        });
     });
     // blog posts
     app.get("/thoughts", (req, res) => {
         db.query('SELECT * FROM thoughts WHERE id = 1', (err, rows, fields) => {
             if (err)
                 res.render("error", { 'error': "application error occurred" });
-            res.render("thoughts", { 'data': rows });
+            res.render("thoughts", { 'isBlog': true, 'posts': rows });
         });
     });
     // specific post
@@ -43,7 +51,7 @@ const register = (app, db) => {
         db.query(`SELECT * FROM thoughts WHERE id = ${req.params.id}`, (err, rows, fields) => {
             if (err)
                 res.render("error", { 'error': "post not found" });
-            res.render("thoughts", { 'data': rows[0] });
+            res.render("thoughts", { 'isBlog': false, 'post': rows[0] });
         });
     });
 };

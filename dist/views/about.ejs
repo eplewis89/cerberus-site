@@ -1,5 +1,21 @@
 <%- include('partials/header') %>
-<div class="main">
-    <p>coming soon</p>
+<div class="main selfie">
+    <% selfie.forEach(function(line) { %>
+        <p ><%- line %></p>
+    <% }) %>
+</div>
+<br />
+<div class="main about">
+    <h3>professional bio</h3>
+    <p>currently working as a backend software engineer in the biotech industry, previous work included backend positions in data collection and cybersecurity. interested in doing more cybersecurity research, which is the purpose of this website.</p>
+    <p>research includes:
+        <ul>
+            <li>nmap automated scanning</li>
+            <li>network data parsing</li>
+            <li>cve detection on systems</li>
+            <li>flipper zero</li>
+        </ul>
+    </p>
+    <p>this website was written in typescript on <a href="https://expressjs.com/" target="_blank">express</a>, utilizes a ci/cd pipeline handled by <a href="https://vercel.com" target="_blank">vercel</a>, and is database driven by <a href="https://planetscale.com/" target="_blank">planetscale</a>.</p>
 </div>
 <%- include('partials/footer') %>

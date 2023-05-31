@@ -32,6 +32,7 @@ const mysql_1 = __importDefault(require("mysql"));
 const serve_favicon_1 = __importDefault(require("serve-favicon"));
 const path_1 = __importDefault(require("path"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const moment_1 = __importDefault(require("moment"));
 // import routes table
 const routes = __importStar(require("./routes"));
 // get config vals of .env
@@ -54,6 +55,10 @@ app.set('view engine', 'ejs');
 app.use(express_1.default.static(path_1.default.join(__dirname, "public")));
 // set favico
 app.use((0, serve_favicon_1.default)(path_1.default.join(__dirname, 'public', 'assets', 'images', 'favicon.ico')));
+app.use((req, res, next) => {
+    res.locals.moment = moment_1.default;
+    next();
+});
 // register routes
 routes.register(app, connection);
 // Starting the server

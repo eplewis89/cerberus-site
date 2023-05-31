@@ -536,6 +536,7 @@ __metadata:
     express: ^4.18.2
     express-ejs-layouts: ^2.5.1
     fs: ^0.0.1-security
+    moment: ^2.29.4
     mysql: ^2.18.1
     npm-run-all: ^4.1.5
     pre-commit: ^1.2.2
@@ -1766,6 +1767,13 @@ __metadata:
   bin:
     mkdirp: bin/cmd.js
   checksum: 0c91b721bb12c3f9af4b77ebf73604baf350e64d80df91754dc509491ae93bf238581e59c7188360cec7cb62fc4100959245a42cfe01834efedc5e9d068376c2
+  languageName: node
+  linkType: hard
+
+"moment@npm:^2.29.4":
+  version: 2.29.4
+  resolution: "moment@npm:2.29.4"
+  checksum: 0ec3f9c2bcba38dc2451b1daed5daded747f17610b92427bebe1d08d48d8b7bdd8d9197500b072d14e326dd0ccf3e326b9e3d07c5895d3d49e39b6803b76e80e
   languageName: node
   linkType: hard
 

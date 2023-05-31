@@ -4,8 +4,15 @@ html {
     color: lightgray;
     text-align: center;
     white-space: nowrap;
-    overflow: hidden;
     width: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+li:before {
+    content: '- ';
 }
 
 /* unvisited link */
@@ -26,45 +33,62 @@ a:hover {
 /* selected link */
 a:active {
     color: teal;
-} 
+}
 
-.head {
-    width: 50%;
-    margin: auto;
-    max-width: 36em;
+nav {
+    margin: 2em auto;
 }
 
 .main {
     display: inline-block;
-}
-
-.main, .footer {
     margin: auto;
     text-align: center;
 }
 
-.main p:first-child {
-    margin-top: 2em;
+.license {
+    font-size: 0.75em;
+    margin: 3em auto;
 }
 
-.main p:last-child {
-    margin-bottom: 2em;
+.selfie p {
+    margin: 0px;
+    margin-bottom: 0.4em;
+    font-size: 0.3em;
+    color: dimgray;
+}
+
+.about {
+    text-align: left;
+    width: 600px;
+    word-break: keep-all;
+    white-space: normal;
+    margin-top: 0;
+}
+
+.about h3, .about p {
+    margin: 1em auto 0;
+}
+
+.about ul {
+    margin: 0;
 }
 
 .hex {
+    overflow: hidden;
     margin-left: -100%;
     margin-right: -100%;
     text-align: center;
     margin: 0;
-}
-
-.hex .dark {
     color: dimgray;
 }
 
 @media only screen 
 and (-webkit-device-pixel-ratio: 3) {
     body {
-        font-size: 0.5em;
+        font-size: 0.5em !important;
+    }
+
+    .selfie {
+        display:none;
     }
 }

@@ -1,9 +1,26 @@
 <%- include('partials/header') %>
 <div class="main">
-    <% if (data) { %>
-    <p><%= data.content %></p>
+    <% if (isBlog) { %>
+        <%- getPosts() %>
+    <% } else if (post) { %>
+        <h3><%= post.title %></h3>
+        <p><%= post.content %></p>
+        <p><a href="/thoughts">< back</a></p>
     <% } else { %>
-    <p>post not found</p>
+        <p>post not found</p>
     <% } %>
 </div>
 <%- include('partials/footer') %>
+
+<%
+function getPosts() {
+    var postList = "";
+
+    posts.forEach(function (p) {
+        var datetime = moment(p.date_posted).format('YYYY-MM-DD')
+        postList += "<p><a href='/thoughts/" + p.id + "'>" + p.title + "</a> - " + datetime + "</p>";
+    });
+
+    return postList;
+}
+%>
