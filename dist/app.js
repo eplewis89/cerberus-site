@@ -32,6 +32,8 @@ const serve_favicon_1 = __importDefault(require("serve-favicon"));
 const path_1 = __importDefault(require("path"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const moment_1 = __importDefault(require("moment"));
+const analytics_1 = require("@vercel/analytics");
+(0, analytics_1.inject)();
 // import routes table
 const routes = __importStar(require("./routes"));
 // get config vals of .env
