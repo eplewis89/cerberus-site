@@ -28,7 +28,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const express_ejs_layouts_1 = __importDefault(require("express-ejs-layouts"));
-const mysql_1 = __importDefault(require("mysql"));
 const serve_favicon_1 = __importDefault(require("serve-favicon"));
 const path_1 = __importDefault(require("path"));
 const dotenv_1 = __importDefault(require("dotenv"));
@@ -41,9 +40,6 @@ dotenv_1.default.config();
 const app = (0, express_1.default)();
 // set port
 const port = process.env.SERVER_PORT;
-// setup database
-const connection = mysql_1.default.createConnection(process.env.DATABASE_URL);
-connection.connect();
 // EJS setup
 app.use(express_ejs_layouts_1.default);
 app.use(express_1.default.json());
@@ -60,7 +56,7 @@ app.use((req, res, next) => {
     next();
 });
 // register routes
-routes.register(app, connection);
+routes.register(app);
 // Starting the server
 app.listen(port, () => {
     // tslint:disable-next-line:no-console
