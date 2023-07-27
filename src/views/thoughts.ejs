@@ -3,7 +3,9 @@
     <% if (isBlog) { %>
         <%- getPosts() %>
     <% } else if (post) { %>
-        <h3><%= post.title %></h3>
+        <h2><%= post.title %></h2>
+        <h3><i><%= moment(post.date_posted).format('YYYY-MM-DD') %></i></h3>
+        <p><i><%= post.subtitle %></i></p>
         <p><%= post.content %></p>
         <p><a href="/thoughts">< back</a></p>
     <% } else { %>
@@ -20,6 +22,10 @@ function getPosts() {
         var datetime = moment(p.date_posted).format('YYYY-MM-DD')
         postList += "<p><a href='/thoughts/" + p.id + "'>" + p.title + "</a> - " + datetime + "</p>";
     });
+
+    if (postList == "") {
+        return "<p>nothing found</p>";
+    }
 
     return postList;
 }
