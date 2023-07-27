@@ -4,9 +4,6 @@ import favicon from "serve-favicon"
 import path from "path";
 import dotenv from "dotenv";
 import moment from "moment";
-import { inject } from '@vercel/analytics';
- 
-inject();
 
 // import routes table
 import * as routes from "./routes";
