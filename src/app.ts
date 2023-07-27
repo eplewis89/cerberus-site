@@ -1,6 +1,5 @@
 import express, { Application } from "express";
 import expressLayouts from 'express-ejs-layouts';
-import mysql from "mysql";
 import favicon from "serve-favicon"
 import path from "path";
 import dotenv from "dotenv";
@@ -17,11 +16,6 @@ const app: Application = express();
 
 // set port
 const port = process.env.SERVER_PORT;
-
-// setup database
-const connection = mysql.createConnection(process.env.DATABASE_URL);
-
-connection.connect()
 
 // EJS setup
 app.use(expressLayouts);
@@ -45,7 +39,7 @@ app.use((req, res, next) => {
 });
 
 // register routes
-routes.register(app, connection);
+routes.register(app);
 
 // Starting the server
 app.listen(port, () => {
