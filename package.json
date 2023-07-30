@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "nodemon src/app.ts",
+    "run": "nodemon src/app.ts",
     "build": "rimraf dist && tsc && npm-run-all copy-assets",
     "ts.check": "tsc --project tsconfig.json",
     "add-build": "git add dist",
