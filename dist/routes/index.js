@@ -7,10 +7,12 @@ exports.register = void 0;
 const mysql_1 = __importDefault(require("mysql"));
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
+const functions_1 = require("../utils/functions");
 const register = (app) => {
-    // setup database
+    // setup database - fix!
     const db = mysql_1.default.createConnection(process.env.DATABASE_URL);
     db.connect();
+    var functions = new functions_1.Functions();
     var examplePost = {
         date_posted: new Date(),
         id: 0,
@@ -43,11 +45,11 @@ const register = (app) => {
             db.query('SELECT * FROM thoughts WHERE id = 1', (err, rows, fields) => {
                 if (err)
                     res.render("error", { 'error': "application error occurred" });
-                res.render("thoughts", { 'isBlog': true, 'posts': rows });
+                res.render("thoughts", { isBlog: true, posts: rows, f: functions });
             });
         }
         else {
-            res.render("thoughts", { 'isBlog': true, 'posts': [examplePost] });
+            res.render("thoughts", { isBlog: true, posts: [examplePost], f: functions });
         }
     });
     // specific post
@@ -56,11 +58,11 @@ const register = (app) => {
             db.query(`SELECT * FROM thoughts WHERE id = ${req.params.id}`, (err, rows, fields) => {
                 if (err)
                     res.render("error", { 'error': "post not found" });
-                res.render("thoughts", { 'isBlog': false, 'post': rows[0] });
+                res.render("thoughts", { isBlog: false, post: rows[0], f: functions });
             });
         }
         else {
-            res.render("thoughts", { 'isBlog': false, 'post': examplePost });
+            res.render("thoughts", { isBlog: false, posts: examplePost, f: functions });
         }
     });
     // about page
