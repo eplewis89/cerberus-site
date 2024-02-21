@@ -1,17 +1,8 @@
 import * as express from "express";
-import mysql from "mysql";
 import fs from "fs";
 import path from "path";
-import { Functions } from "../utils/functions";
 
 export const register = (app: express.Application) => {
-    // setup database - fix!
-    const db = mysql.createConnection(process.env.DATABASE_URL);
-
-    db.connect()
-
-    var functions = new Functions();
-
     var examplePost = {
         date_posted: new Date(),
         id: 0,
@@ -44,28 +35,7 @@ export const register = (app: express.Application) => {
 
     // blog posts
     app.get("/thoughts", (req: any, res) => {
-        if (db != null) {
-            db.query('SELECT * FROM thoughts WHERE id = 1', (err, rows, fields) => {
-                if (err) res.render("error", { 'error': "application error occurred" });
-            
-                res.render("thoughts", { isBlog: true, posts: rows, f: functions });
-            });
-        } else {
-            res.render("thoughts", { isBlog: true, posts: [examplePost], f: functions });
-        }
-    });
-
-    // specific post
-    app.get("/thoughts/:id", (req: any, res) => {
-        if (db != null) {
-            db.query(`SELECT * FROM thoughts WHERE id = ${ req.params.id }`, (err, rows, fields) => {
-                if (err) res.render("error", { 'error': "post not found" });
-            
-                res.render("thoughts", { isBlog: false, post: rows[0], f: functions });
-            });
-        } else {
-            res.render("thoughts", { isBlog: false, posts: examplePost, f: functions });
-        }
+        res.render("thoughts");
     });
 
     // about page
