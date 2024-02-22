@@ -10,8 +10,6 @@
 <script>
     let target = JSON.parse('{ "data": <%- JSON.stringify(final) %> }').data;
 
-    console.log(target);
-
     function replaceChar(row, col, char) {
         let currand = getRandomInt(100) * 50;
         let curclass = ".row" + row + ".col" + col;
