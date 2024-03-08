@@ -45,6 +45,11 @@ nav {
     text-align: center;
 }
 
+.main a {
+    margin: 1em auto;
+    float: left;
+}
+
 .license {
     font-size: 0.75em;
     margin: 3em auto;
