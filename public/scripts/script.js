@@ -1,6 +1,17 @@
 const scriptTag = document.currentScript
 const data = scriptTag.dataset
 
+let timeoutId = 0;
+let navigating = false;
+
+window.addEventListener('hashchange', function(e){
+  navigating = true;
+
+  while(timeoutId--) {
+    window.clearTimeout(timeoutId)
+  }
+});
+
 window.onload = beginFrameReplace();
 
 function beginFrameReplace() {
@@ -22,9 +33,11 @@ function replaceChar(row, col, char) {
     let curclass = ".row" + row + ".col" + col;
     let replaced = "<span class='dark'>" + char + "</span>";
 
-    setTimeout(function() {
-      document.querySelector(curclass).outerHTML = replaced
-    }, 1500 + currand)
+    if (!navigating && document.querySelector(curclass) !== null) {
+      timeoutId = setTimeout(function() {
+        document.querySelector(curclass).outerHTML = replaced
+      }, 1500 + currand)
+    }
 }
 
 function getRandomInt(max) {
