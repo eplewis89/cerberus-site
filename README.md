@@ -1,35 +1,36 @@
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
-________ ____ ____ ____ ____ ____ ____ ____ ____ ________________
-________ ____ ____ ____ ____ ____ ____ ____ ____ ________________
-________ ___                _                       _____________
-________ ___    ___ ___ ___| |_ ___ ___ _ _ ___     _____________
-________ ___   |  _| -_|  _| . | -_|  _| | |_ -|    _____________
-________ ___   |___|___|_| |___|___|_| |___|___|    _____________
-________ ____ ____ ____ ____ ____ ____ ____ ____ ________________
-________ ____ ____ ____ ____ ____ ____ ____ ____ ________________
-```
 
-# cerberus.zip
-This website was made using [ExpressJS](https://expressjs.com).
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Currently hosted in [Vercel](https://vercel.com).
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Content on this site is licensed [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Running Locally
+## Learn More
 
-In order to run locally, use Yarn to install the dependencies:
+To learn more about Next.js, take a look at the following resources:
 
-`yarn install`
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Before running you need to create a `.env` file, this can be done by just renaming the `.env.example` file. After, you can use the run command to run the website on port 3000:
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-`yarn run`
+## Deploy on Vercel
 
-## Deployment
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Before deploying to Vercel, you should use build to output the current work to the `dist` directory:
-
-`yarn build`
-
-Currently this website uses GitHub with a Vercel integration as the CI/CD engine. This is fairly easy to setup (go read the manual)
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

@@ -1,0 +1,106 @@
+body {
+  color: lightgray;
+  background: black;
+  padding: 0;
+}
+
+html {
+  font-family: Consolas, monaco, monospace;
+  text-align: center;
+  white-space: nowrap;
+  width: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+li:before {
+  content: '- ';
+}
+
+/* unvisited link */
+a:link {
+  color: lightgray;
+}
+
+/* visited link */
+a:visited {
+  color: white;
+}
+
+/* mouse over link */
+a:hover {
+  color: teal;
+}
+
+/* selected link */
+a:active {
+  color: teal;
+}
+
+nav {
+  margin: 2em auto;
+}
+
+.main {
+  display: inline-block;
+  margin: auto;
+  text-align: center;
+  width: 600px;
+}
+
+.main a, .main h3, .main p {
+  margin: 1em auto;
+  float: left;
+  text-align: left;
+  word-break: keep-all;
+  white-space: normal;
+  margin-top: 0;
+}
+
+.main h3, .main p {
+  margin: 1em auto 0;
+}
+
+.main p.hex {
+  margin: 0;
+}
+
+.main ul {
+  margin: 0;
+}
+
+.license {
+  font-size: 0.75em;
+  margin: 3em auto;
+}
+
+.hex {
+  overflow: hidden;
+  margin-left: -100%;
+  margin-right: -100%;
+  text-align: center;
+  margin: 0;
+  color: dimgray;
+}
+
+@media only screen 
+and (-webkit-device-pixel-ratio: 3) {
+  body {
+      font-size: 0.5em !important;
+  }
+
+  .selfie {
+      display:none;
+  }
+}
+
+a[x-apple-data-detectors] {
+  color: inherit !important;
+  text-decoration: none !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+}
