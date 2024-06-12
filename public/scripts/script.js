@@ -33,9 +33,13 @@ function replaceChar(row, col, char) {
     let curclass = ".row" + row + ".col" + col;
     let replaced = "<span class='dark'>" + char + "</span>";
 
-    if (!navigating && document.querySelector(curclass) !== null) {
+    if (!navigating) {
       timeoutId = setTimeout(function() {
-        document.querySelector(curclass).outerHTML = replaced
+        let elem = document.querySelector(curclass)
+
+        if (elem !== null) {
+          elem.outerHTML = replaced
+        }
       }, 1500 + currand)
     }
 }
