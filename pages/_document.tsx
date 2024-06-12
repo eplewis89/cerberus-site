@@ -6,7 +6,7 @@ export default function Document() {
     <Html lang="en">
       <Script src="assets/js/jquery-3.6.0.min.js" strategy="beforeInteractive"></Script>
       <Head />
-      <body>
+      <body className="flex flex-col min-h-screen">
         <Main />
         <NextScript />
       </body>
