@@ -78,6 +78,7 @@ a:active {
 
 .main p.hex {
   margin: 0;
+  line-height: 1.3em;
 }
 
 .main ul {
