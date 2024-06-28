@@ -14,7 +14,7 @@ function Layout({ children }: any) {
             <Analytics />
             <SpeedInsights />
             <Header />
-            <div className="main flex flex-1 flex-col items-center align-center mx-auto md:w-full">
+            <div className="main flex flex-1 flex-col items-center align-center">
                 {children}
             </div>
             <section className="flex-grow"></section>

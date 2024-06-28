@@ -7,7 +7,7 @@ import Layout from '@/components/Layout'
 
 const Page = () => {
   return (
-    <div className="mt-4 lg:w-1/3 text-md text-left">
+    <div className="mt-4 text-md text-left sm:mx-4 md:mx-auto sm:w-full md:w-2/3 lg:w-1/2 xl:w-1/3">
       <p>
         Jul 30, 2023
         <br />
