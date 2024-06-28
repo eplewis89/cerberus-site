@@ -7,7 +7,7 @@ import Layout from '@/components/Layout'
 
 const Page = () => {
   return (
-    <>
+    <div className="mt-4 lg:w-1/3 text-md text-left">
       <p>
         Jul 30, 2023
         <br />
@@ -29,7 +29,7 @@ const Page = () => {
           Crafting an extendable, easy to maintain database layer for Go
         </Link>
       </p>
-    </>
+    </div>
   )
 }
 
