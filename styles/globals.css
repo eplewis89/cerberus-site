@@ -16,10 +16,6 @@ body {
   margin: 0;
 }
 
-nav {
-  margin: 2em;
-}
-
 .footer {
   margin: 2em;
 }
@@ -56,20 +52,11 @@ a:active {
   color: teal;
 }
 
-.main {
-  display: inline-block;
-  margin: 2em auto;
-  text-align: center;
-  width: 600px;
-}
-
 .main a, .main h3, .main p {
-  margin: 1em auto;
-  float: left;
-  text-align: left;
   word-break: keep-all;
   white-space: normal;
   margin-top: 0;
+  text-wrap: auto;
 }
 
 .main h3, .main p {
@@ -97,6 +84,14 @@ a:active {
   text-align: center;
   margin: 0;
   color: dimgray;
+}
+
+ul.pipe {
+    list-style-type: none !important;
+}
+
+ul.pipe li::before {
+    content: '';
 }
 
 @media only screen 

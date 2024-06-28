@@ -31,14 +31,14 @@ function createFrame() {
 
 const Page = () => {
   return (
-    <>
+    <div className="mt-4">
       <div dangerouslySetInnerHTML={createFrame()} ></div>
 
       <ScriptWithCleanup
         id="hex-script"
         src="/scripts/script.js"
         data-json={JSON.stringify(final)}></ScriptWithCleanup>
-    </>
+    </div>
   )
 }
 
