@@ -15,7 +15,8 @@ const Page = () => {
         <li>nmap automated scanning</li>
         <li>network data parsing</li>
         <li>cve detection on systems</li>
-        <li>flipper zero</li>
+        <li>network traffic analysis</li>
+        <li>cybersecurity research</li>
       </ul>
     </div>
   )
