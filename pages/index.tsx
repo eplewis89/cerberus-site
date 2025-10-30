@@ -4,8 +4,8 @@ import { type ReactElement } from 'react'
 import Layout from '@/components/Layout'
 import { ScriptWithCleanup } from '@/components/ScriptWithCleanup'
 
-import original from '../public/text/original.json'
-import final from '../public/text/final.json'
+import original from '@/public/text/original.json'
+import final from '@/public/text/final.json'
 
 function createFrame() {
   let linedata = ""
